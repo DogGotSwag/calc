@@ -20,4 +20,12 @@ body{
     height: 95%;
     background-color: #070707;
     border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px 20px 30px;
 }
+
+.calculator * {
+    flex-grow: 1;
+}
+

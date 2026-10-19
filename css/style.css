@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body, html{
@@ -34,17 +35,32 @@ body{
     flex-wrap: wrap;
     flex: 1;
     gap: 10px;
+    font-size: 20px;
 }
 
 .calculator .buttonsSection * {
-    background-color: #546A76;
+    background-color: #240507;
     width: 23%;
     aspect-ratio: 1;
+    color: #FFAD05;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
     border-radius: 50%;
+}
+
+.buttonsSection .red {
+    color: #E21219;
+}
+
+.buttonsSection .blue {
+    color: #0C6291;
+}
+
+.buttonsSection .equal {
+    background-color: #0C6291;
+    color: white;
 }
 

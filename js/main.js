@@ -32,3 +32,19 @@ function operate(operator, numOne, numTwo){
 let operandOne;
 let operandTwo;
 let operator;
+
+let buttonSection = document.querySelector(".buttonsSection");
+
+buttonSection.addEventListener("click", (e) => {
+    let target = e.target;
+    if(target.classList.contains("digit")){
+        let num = +target.textContent;
+        console.log(num);
+    }
+    if(target.classList.contains("operator")){
+        let op = target.textContent;
+        console.log(op);
+    }
+});
+
+

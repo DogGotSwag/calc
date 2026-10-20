@@ -29,6 +29,11 @@ function operate(operator, numOne, numTwo){
     }
 }
 
+function updateDisplay(){
+    let input = document.querySelector("input");
+    input.value = `${operandOne||""} ${operator||""} ${operandTwo||""}`;
+}
+
 let operandOne;
 let operandTwo;
 let operator;
@@ -48,8 +53,7 @@ buttonSection.addEventListener("click", (e) => {
         let op = target.textContent;
         operator = op;
     }
-    console.log(operandOne, operator, operandTwo);
-    
+    updateDisplay();
 });
 
 

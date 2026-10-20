@@ -39,12 +39,17 @@ buttonSection.addEventListener("click", (e) => {
     let target = e.target;
     if(target.classList.contains("digit")){
         let num = +target.textContent;
-        console.log(num);
+        if(!operandOne) operandOne = num;
+        else if(!operator) operandOne = +`${operandOne}${num}`;
+        else if(!operandTwo) operandTwo = num;
+        else operandTwo = +`${operandTwo}${num}`;
     }
     if(target.classList.contains("operator")){
         let op = target.textContent;
-        console.log(op);
+        operator = op;
     }
+    console.log(operandOne, operator, operandTwo);
+    
 });
 
 

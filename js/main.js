@@ -38,6 +38,7 @@ let operandOne;
 let operandTwo;
 let operator;
 let recentResult = false;
+let decimalUsed = false;
 
 let buttonSection = document.querySelector(".buttonsSection");
 
@@ -55,6 +56,7 @@ buttonSection.addEventListener("click", (e) => {
     }
     if(target.classList.contains("operator")){
         recentResult = false;
+        decimalUsed = false;
         let op = target.textContent;
         if(operandOne && operator && operandTwo){
             let result =  +operate(operator, operandOne, operandTwo);
@@ -80,6 +82,21 @@ buttonSection.addEventListener("click", (e) => {
         operandTwo = null;
         operator = null;
     }
+
+    if(target.classList.contains("decimal")){
+        if(!decimalUsed){
+            console.log(decimalUsed, operandOne, operator, operandTwo);  
+            if(operandOne == null) operandOne = ".";
+            else if(operator == null && recentResult){
+                operandOne = ".";
+            } 
+            else if(!operator) operandOne = `${operandOne}${"."}`;
+            else if(operandTwo == null) operandTwo = ".";
+            else operandTwo = `${operandTwo}${"."}`;
+            decimalUsed = true;
+        }
+    }
+
     updateDisplay();
 });
 

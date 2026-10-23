@@ -56,7 +56,9 @@ buttonSection.addEventListener("click", (e) => {
     if(target.classList.contains("equal")){
         if(operandOne && operator && operandTwo){
             let result = operate(operator, operandOne, operandTwo);
-            
+            operandOne = result
+            operandTwo = null;
+            operator = null;
         }
     }
     updateDisplay();

@@ -31,7 +31,7 @@ function operate(operator, numOne, numTwo){
 
 function updateDisplay(){
     let input = document.querySelector("input");
-    input.value = `${operandOne||""} ${operator||""} ${operandTwo||""}`;
+    input.value = `${operandOne == null ? "":operandOne} ${operator||""} ${operandTwo == null ? "":operandTwo}`;
 }
 
 let operandOne;
@@ -44,9 +44,9 @@ buttonSection.addEventListener("click", (e) => {
     let target = e.target;
     if(target.classList.contains("digit")){
         let num = +target.textContent;
-        if(!operandOne) operandOne = num;
+        if(operandOne == null) operandOne = num;
         else if(!operator) operandOne = +`${operandOne}${num}`;
-        else if(!operandTwo) operandTwo = num;
+        else if(operandTwo == null) operandTwo = num;
         else operandTwo = +`${operandTwo}${num}`;
     }
     if(target.classList.contains("operator")){
@@ -54,7 +54,7 @@ buttonSection.addEventListener("click", (e) => {
         operator = op;
     }
     if(target.classList.contains("equal")){
-        if(operandOne && operator && operandTwo){
+        if(operandOne != null && operator != null && operandTwo != null){
             let result = operate(operator, operandOne, operandTwo);
             operandOne = result
             operandTwo = null;

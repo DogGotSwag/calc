@@ -37,19 +37,24 @@ function updateDisplay(){
 let operandOne;
 let operandTwo;
 let operator;
+let recentResult = false;
 
 let buttonSection = document.querySelector(".buttonsSection");
 
 buttonSection.addEventListener("click", (e) => {
     let target = e.target;
-    if(target.classList.contains("digit")){
+    if(target.classList.contains("digit")){        
         let num = +target.textContent;
         if(operandOne == null) operandOne = num;
+        else if(operator == null && recentResult){
+            operandOne = num;
+        } 
         else if(!operator) operandOne = +`${operandOne}${num}`;
         else if(operandTwo == null) operandTwo = num;
         else operandTwo = +`${operandTwo}${num}`;
     }
     if(target.classList.contains("operator")){
+        recentResult = false;
         let op = target.textContent;
         if(operandOne && operator && operandTwo){
             let result =  +operate(operator, operandOne, operandTwo);
@@ -67,6 +72,7 @@ buttonSection.addEventListener("click", (e) => {
             operandOne = +result.toFixed(2);
             operandTwo = null;
             operator = null;
+            recentResult = true;
         }
     }
     if(target.classList.contains("clear")){

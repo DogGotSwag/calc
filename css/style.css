@@ -58,6 +58,7 @@ body{
 }
 
 .calculator .buttonsSection * {
+
     background-color: #240507;
     width: 23%;
     aspect-ratio: 1;
@@ -68,6 +69,7 @@ body{
     align-items: center;
 
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .buttonsSection .red {

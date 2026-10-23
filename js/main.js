@@ -51,7 +51,15 @@ buttonSection.addEventListener("click", (e) => {
     }
     if(target.classList.contains("operator")){
         let op = target.textContent;
-        operator = op;
+        if(operandOne && operator && operandTwo){
+            let result =  operate(operator, operandOne, operandTwo);
+            operandOne = result;
+            operator = op;
+            operandTwo = null;
+        }
+        else{
+            operator = op;
+        }
     }
     if(target.classList.contains("equal")){
         if(operandOne != null && operator != null && operandTwo != null){
@@ -60,6 +68,11 @@ buttonSection.addEventListener("click", (e) => {
             operandTwo = null;
             operator = null;
         }
+    }
+    if(target.classList.contains("clear")){
+        operandOne = null
+        operandTwo = null;
+        operator = null;
     }
     updateDisplay();
 });

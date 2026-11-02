@@ -97,6 +97,26 @@ buttonSection.addEventListener("click", (e) => {
         }
     }
 
+    if(target.classList.contains("delete")){
+        if(operandOne && operator == null){
+            let newOpArr = String(operandOne).split("");
+            let removed = newOpArr.splice(-1, 1)[0];
+            if(removed === ".") decimalUsed = false;
+            let newNum = newOpArr.join("");
+            operandOne = (newNum == "") ? null : newNum; 
+        }
+        else if(operator && operandTwo == null){
+            operator = null;
+        }
+        else if(operandTwo){
+            let newOpArr = String(operandTwo).split("");
+            let removed = newOpArr.splice(-1, 1)[0];
+            if(removed === ".") decimalUsed = false;
+            let newNum = newOpArr.join("");
+            operandTwo = (newNum == "") ? null : newNum; 
+        }
+    }
+
     updateDisplay();
 });
 

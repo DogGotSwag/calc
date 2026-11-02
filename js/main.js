@@ -85,7 +85,6 @@ buttonSection.addEventListener("click", (e) => {
 
     if(target.classList.contains("decimal")){
         if(!decimalUsed){
-            console.log(decimalUsed, operandOne, operator, operandTwo);  
             if(operandOne == null) operandOne = ".";
             else if(operator == null && recentResult){
                 operandOne = ".";

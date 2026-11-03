@@ -147,6 +147,12 @@ document.addEventListener("keydown",(e) => {
     }
 });
 
+const inputElement = document.querySelector('input');
+inputElement.addEventListener('keydown', function(event) {
+    event.preventDefault();
+});
+
+
 
 
 

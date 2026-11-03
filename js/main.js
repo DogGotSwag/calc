@@ -119,4 +119,34 @@ buttonSection.addEventListener("click", (e) => {
     updateDisplay();
 });
 
+document.addEventListener("keydown",(e) => {
+    let key = e.key;
+    let operators = ["+","-","*","/"];
+    let numbers = ["0","1","2","3","4","5","6","7","8","9"];
+    switch (true) {
+        case (operators.includes(key)):
+            console.log(key);
+            break;
+        case (numbers.includes(key)):
+            console.log(key);
+            break;
+        case (key === "Backspace"):
+            console.log("back");
+            break;
+        case (key === "c"):
+            console.log("clear");
+            break;
+        case (key === "."):
+            console.log("dec");
+            break;
+        case (key === "="):
+            console.log("=");
+            break;
+        default:
+            break;
+    }
+});
+
+
+
 

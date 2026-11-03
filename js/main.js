@@ -34,6 +34,16 @@ function updateDisplay(){
     input.value = `${operandOne == null ? "":operandOne} ${operator||""} ${operandTwo == null ? "":operandTwo}`;
 }
 
+function processDigitInput(num){
+    if(operandOne == null) operandOne = num;
+    else if(operator == null && recentResult){
+        operandOne = num;
+    } 
+    else if(!operator) operandOne = +`${operandOne}${num}`;
+    else if(operandTwo == null) operandTwo = num;
+    else operandTwo = +`${operandTwo}${num}`;
+}
+
 let operandOne;
 let operandTwo;
 let operator;

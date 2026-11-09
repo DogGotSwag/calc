@@ -160,7 +160,7 @@ document.addEventListener("keydown",(e) => {
         case (key === "."):
             processDecimalInput();
             break;
-        case (key === "="):
+        case (key === "=" || key === "Enter"):
             processEqualInput();
             break;
         default:

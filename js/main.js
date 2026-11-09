@@ -97,6 +97,16 @@ function processDecimalInput(){
     }
 }
 
+function processEqualInput(){
+    if(operandOne != null && operator != null && operandTwo != null){
+        let result = +operate(operator, operandOne, operandTwo);
+        operandOne = +result.toFixed(2);
+        operandTwo = null;
+        operator = null;
+        recentResult = true;
+    }
+}
+
 let operandOne;
 let operandTwo;
 let operator;
@@ -116,13 +126,7 @@ buttonSection.addEventListener("click", (e) => {
         processOperatorInput(op);
     }
     if(target.classList.contains("equal")){
-        if(operandOne != null && operator != null && operandTwo != null){
-            let result = +operate(operator, operandOne, operandTwo);
-            operandOne = +result.toFixed(2);
-            operandTwo = null;
-            operator = null;
-            recentResult = true;
-        }
+        processEqualInput();
     }
     if(target.classList.contains("clear")){
         processClearInput();

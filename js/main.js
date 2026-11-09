@@ -56,13 +56,7 @@ buttonSection.addEventListener("click", (e) => {
     let target = e.target;
     if(target.classList.contains("digit")){        
         let num = +target.textContent;
-        if(operandOne == null) operandOne = num;
-        else if(operator == null && recentResult){
-            operandOne = num;
-        } 
-        else if(!operator) operandOne = +`${operandOne}${num}`;
-        else if(operandTwo == null) operandTwo = num;
-        else operandTwo = +`${operandTwo}${num}`;
+        processDigitInput(num);
     }
     if(target.classList.contains("operator")){
         recentResult = false;
@@ -138,7 +132,7 @@ document.addEventListener("keydown",(e) => {
             console.log(key);
             break;
         case (numbers.includes(key)):
-            console.log(key);
+            processDigitInput(key);
             break;
         case (key === "Backspace"):
             console.log("back");
@@ -155,6 +149,7 @@ document.addEventListener("keydown",(e) => {
         default:
             break;
     }
+    updateDisplay();
 });
 
 const inputElement = document.querySelector('input');

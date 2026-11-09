@@ -78,6 +78,12 @@ function processDeleteInput(){
     }
 }
 
+function processClearInput(){
+    operandOne = null
+    operandTwo = null;
+    operator = null;
+}
+
 let operandOne;
 let operandTwo;
 let operator;
@@ -106,9 +112,7 @@ buttonSection.addEventListener("click", (e) => {
         }
     }
     if(target.classList.contains("clear")){
-        operandOne = null
-        operandTwo = null;
-        operator = null;
+        processClearInput();
     }
 
     if(target.classList.contains("decimal")){

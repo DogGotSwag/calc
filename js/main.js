@@ -84,6 +84,19 @@ function processClearInput(){
     operator = null;
 }
 
+function processDecimalInput(){
+    if(!decimalUsed){
+        if(operandOne == null) operandOne = ".";
+        else if(operator == null && recentResult){
+            operandOne = ".";
+        } 
+        else if(!operator) operandOne = `${operandOne}${"."}`;
+        else if(operandTwo == null) operandTwo = ".";
+        else operandTwo = `${operandTwo}${"."}`;
+        decimalUsed = true;
+    }
+}
+
 let operandOne;
 let operandTwo;
 let operator;
@@ -114,24 +127,12 @@ buttonSection.addEventListener("click", (e) => {
     if(target.classList.contains("clear")){
         processClearInput();
     }
-
     if(target.classList.contains("decimal")){
-        if(!decimalUsed){
-            if(operandOne == null) operandOne = ".";
-            else if(operator == null && recentResult){
-                operandOne = ".";
-            } 
-            else if(!operator) operandOne = `${operandOne}${"."}`;
-            else if(operandTwo == null) operandTwo = ".";
-            else operandTwo = `${operandTwo}${"."}`;
-            decimalUsed = true;
-        }
+        processDecimalInput();
     }
-
     if(target.classList.contains("delete")){
         processDeleteInput();
     }
-
     updateDisplay();
 });
 

@@ -35,8 +35,10 @@ function updateDisplay(){
 }
 
 function processDigitInput(num){
+    console.log(operandOne, operator, operandTwo);
     if(operandOne == null) operandOne = num;
     else if(operator == null && recentResult){
+        recentResult = false;
         operandOne = num;
     } 
     else if(!operator) operandOne = +`${operandOne}${num}`;

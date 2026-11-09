@@ -44,6 +44,20 @@ function processDigitInput(num){
     else operandTwo = +`${operandTwo}${num}`;
 }
 
+function processOperatorInput(op){
+    recentResult = false;
+    decimalUsed = false;
+    if(operandOne && operator && operandTwo){
+        let result =  +operate(operator, operandOne, operandTwo);
+        operandOne = +result.toFixed(2);
+        operator = op;
+        operandTwo = null;
+    }
+    else{
+        operator = op;
+    }
+}
+
 let operandOne;
 let operandTwo;
 let operator;
@@ -59,18 +73,8 @@ buttonSection.addEventListener("click", (e) => {
         processDigitInput(num);
     }
     if(target.classList.contains("operator")){
-        recentResult = false;
-        decimalUsed = false;
         let op = target.textContent;
-        if(operandOne && operator && operandTwo){
-            let result =  +operate(operator, operandOne, operandTwo);
-            operandOne = +result.toFixed(2);
-            operator = op;
-            operandTwo = null;
-        }
-        else{
-            operator = op;
-        }
+        processOperatorInput(op);
     }
     if(target.classList.contains("equal")){
         if(operandOne != null && operator != null && operandTwo != null){

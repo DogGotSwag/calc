@@ -150,7 +150,7 @@ document.addEventListener("keydown",(e) => {
             processDeleteInput();
             break;
         case (key === "c"):
-            console.log("clear");
+            processClearInput();
             break;
         case (key === "."):
             console.log("dec");

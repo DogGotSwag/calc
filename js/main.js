@@ -143,7 +143,7 @@ document.addEventListener("keydown",(e) => {
             processDigitInput(key);
             break;
         case (key === "Backspace"):
-            console.log("back");
+            processDeleteInput();
             break;
         case (key === "c"):
             console.log("clear");

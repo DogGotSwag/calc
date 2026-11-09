@@ -154,7 +154,7 @@ document.addEventListener("keydown",(e) => {
             processClearInput();
             break;
         case (key === "."):
-            console.log("dec");
+            processDecimalInput();
             break;
         case (key === "="):
             console.log("=");
